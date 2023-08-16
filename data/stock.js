@@ -7,6 +7,7 @@ const obras = [
         elenco: "Daniela Daverio, Agustina Pettina, Félix Prync, Jorge Vera",
         dia: "Jueves",
         horario: "20.30 hs",
+        funciones: "Jueves 17/8 20.30 hs"+"Jueves 24/8 20.30 hs"+"Jueves 31/8 20.30 hs",
         precio: 2800, 
         cantidad: 1,
         img: "../images/programacion/obra-pero-no-es-todo-cierto.webp", 
@@ -23,6 +24,7 @@ const obras = [
         elenco: "Lali Fischer, Federico Foscaldi, Juan Ortiz",
         dia: "Viernes",
         horario: "20.30 hs",
+        funciones: "Viernes 18/8 20.30 hs"+"Viernes 25/8 20.30 hs"+"Viernes 1/9 20.30 hs",
         precio: 2800, 
         cantidad: 1,
         img: "../images/programacion/el-manchado-obra.webp", 
@@ -39,6 +41,7 @@ const obras = [
         elenco: "Carla Abelando, Sayi Lavagna, Victoria Pepe, Emilia Rebottaro, Marcos Ribas",
         dia: "Viernes",
         horario: "22.30 hs",
+        funciones: "Viernes 18/8 22.30 hs"+"Viernes 25/8 22.30 hs"+"Viernes 1/9 22.30 hs",
         precio: 2200, 
         cantidad: 1,
         img: "../images/programacion/entrometida-cuadrado-g.webp", 
@@ -56,6 +59,7 @@ const obras = [
         elenco: "Martina Meirama, Bernardita Ottonello",
         dia: "Sábado", //Esperando nuevo flyer con día actualizado
         horario: "20.00 hs",
+        funciones: "Sábado 19/8 20.00 hs"+"Sábado 26/8 20.00 hs"+"Sábado 2/9 20.00 hs",
         precio: 2500,
         cantidad: 1,
         img: "../images/programacion/homenaje-a-connie-parker.webp", 
@@ -72,7 +76,8 @@ const obras = [
         dirección: "n/c",
         elenco: "Laura Loredo Rubio, Alejandro Amdan, Fede Foscaldi, Jimena García Conde y Olave Mendoza",
         dia: "Sábado",
-        horario: "20.00 hs",
+        horario: "22.30 hs",        
+        funciones: "Sábado 19/8 20.00 hs",
         precio: 2500,
         cantidad: 1,
         img: "../images/programacion/Flyer-derrame-cuadrado-g.webp", 
@@ -89,6 +94,7 @@ const obras = [
         elenco: "Victoria Casellas, Diego Centorame, Violeta Gros, Vladimir Klink, Martina López González, Marco Spaggiari, Cintia Duarte, Constanza Duarte, Luna Jankowski, Rosa Ortiz Pereyra, Nicolas Schneider, Manuela López González",
         dia: "Domingo",
         horario: "20.30 hs",
+        funciones: "Domingo 20/8 20.30 hs",
         precio: 2300, 
         cantidad: 1, 
         img: "../images/programacion/malflash-mayo.webp", 
@@ -100,39 +106,18 @@ const obras = [
 
 ]
 
-const obrasPpales = [
+// Dejé esto comentado ya que, en un principio, el array obrasPpales lo creé en esta hoja de sotck.js, solo que pensé que, si este array solo se usará para pintar el index, quizás puede estar en la función que se encarga de ello
 
-    {
-        id: 5,
-        titulo: "EFECTO DERRAME", 
-        img: "./images/programacion/Flyer-derrame-cuadrado-g.webp", 
-        alt: "ciclo escenas comicas Efecto derrame",
-        link: "https://alternativateatral.com/obra84916-efecto-derrame-agosto"
-    },
 
-    {
-        id: 6,
-        titulo: "MALFLASH", 
-        img: "./images/programacion/malflash-mayo.webp", 
-        alt: "ciclo Malflash",
-        link: "https://panel.alternativateatral.com/obra83722-malflash-edicion-mayo"
-
-    },
-   
-    {
-        id: 2,
-        titulo: "EL MANCHADO", 
-        img: "./images/programacion/el-manchado-obra.webp", 
-        alt: "flyer obra El Manchado",
-        link: "https://alternativateatral.com/obra83803-el-manchado"
-    },
-
-    {
-        id: 7,
-        titulo: "PROGRAMACIÓN COMPLETA", 
-        img: "./images/programacion/programacion-completa.webp", 
-        alt: "programacion completa",
-        link: "pages/programacion-actual.html"
-    },
-]
-
+// const obrasPpales = obras.slice(3, 6).map(obra => ({
+//     ...obra
+//   }));
+  
+//   obrasPpales.push({
+//     id: 7,
+//     titulo: "PROGRAMACIÓN COMPLETA",
+//     img: "./images/programacion/programacion-completa.webp",
+//     alt: "programacion completa",
+//     link: "pages/programacion-actual.html"
+//   });
+  

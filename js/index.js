@@ -1,10 +1,23 @@
-  const pintarObrasIndex = () => {
-    const contenedorIndex = document.getElementById('contenedor-index'); // Se obtiene el contenedor (ya existente) al que se le quiere agregar el futuro elemento/etiqueta creado
+const pintarObrasIndex = () => {
+  // Creación de un nuevo array obrasPpales ya que este array solo será usado en esta función que pinta el Index
+  const obrasPpales = obras.slice(3, 6).map(obra => ({
+    ...obra // Spread de cada objeto obra
+  }));
+  
+    obrasPpales.push({ // Se agrega la imagen de programación completa del index
+      id: 7,
+      titulo: "PROGRAMACIÓN COMPLETA",
+      img: "./images/programacion/programacion-completa.webp",
+      alt: "programacion completa",
+      link: "pages/programacion-actual.html"
+    });
+    
+    const contenedorIndex = document.getElementById('contenedor-index'); // Se obtiene el contenedor 
 
-    const divIndex = document.createElement('div'); // Se crea dentro de ese contenedor, una etiqueta div que estará por fuera y englobará las 4 iteraciones del array (por el forEach ())
-    divIndex.classList.add('container-fluid', 'my-4', 'row'); // se le agregan clases. Todas las iteraciones (4 imágenes) serán row
+    const divIndex = document.createElement('div'); // Se crea dentro de ese contenedor una etiqueta div que englobará las 4 iteraciones del array
+    divIndex.classList.add('container-fluid', 'my-4', 'row'); // se le agregan clases.
 
-    obrasPpales.forEach(obraPpal => { // Recién después se hace iterar al array que tiene el stock de obras ppales, porque lo que queremos que se repita la cantidad de veces cuyas obras hay (4) es la acción de agregar imágenes
+    obrasPpales.forEach(obraPpal => { 
 
         divIndex.innerHTML += ` 
             <article class="col-sm-12 col-md-6 col-lg-3 mb-2">
@@ -14,7 +27,7 @@
                 </a>                        
               </div>
             </article>
-        `; // Se le asigna a esa etiqueta creada (que será un div con las clases container-fluid row my-4) este contenido, y se repetirá 4 veces 
+        `; 
     });
 
     contenedorIndex.appendChild(divIndex); // Sumamos el div creado al contenedor obtenido
