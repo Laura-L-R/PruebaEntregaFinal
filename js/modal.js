@@ -114,9 +114,9 @@ const modalBtnEntradas = (obras) => {
         const btnObra = document.getElementById(obra.id.toString());
         btnObra.addEventListener("click", () => {
             const opcionesFechasHorarios = obra.funciones.split("+").map(funcion => {
-                return `<option value="${funcion.trim()}">${funcion.trim()}</option>`;
+                return `<option value="${funcion.trim()}">\n${funcion.trim()}</option>`;
             }).join('');
-
+			
             Swal.fire({
                 title: `Entradas para ${obra.titulo}`,
                 html: `
