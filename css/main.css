@@ -252,6 +252,17 @@ figure figcaption {
   outline: none;
 }
 
+.modal-sweet {
+  font-size: 1.3rem;
+  color: rgb(140, 3, 3);
+}
+
+.swal2-title {
+  font-size: 2.2rem;
+  color: rgb(140, 3, 3);
+  /* Otros estilos si los necesitas */
+}
+
 footer {
   background-color: rgb(13, 13, 13);
   padding: 10px 20px;

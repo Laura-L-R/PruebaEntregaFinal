@@ -1,26 +1,28 @@
+// Comienza viendo si el carrito tiene algo almacenado el el local storage (de alguna otra vez que se entró a la página), o si está vacío
 let carrito = JSON.parse(localStorage.getItem ("obrasCompradas")) || []
 console.log(carrito)
 
-const contenedorProgramacion =  document.getElementById("contenedor-programacion-actual")
+const contenedorProgramacion =  document.getElementById("contenedor-programacion-actual") // Se captura el contenedor que contiene la programación (agregada de modo dinámico, ver la función en home.js)
 
+// Se agrega un Listener para escuchar un elemento específico de dicho contenedor (aquel que tiene la clase "agregar", es decir, el button ENTRADAS)
 contenedorProgramacion.addEventListener("click", (e)=>{
-    if(e.target.classList.contains("agregar")){
-        validarObraEnCarrito(e.target.id)
+    if(e.target.classList.contains("agregar")){ //Busca esta clase en el button de cada card.
+        validarObraEnCarrito(e.target.id) // Llamado a esta función tomando como parámetro el id de cada button
     }
 })
 
 const validarObraEnCarrito = (id)=>{
     const estaRepetido =  carrito.some (obra => obra.id == id)
 
-    if (!estaRepetido){
+    if (!estaRepetido){ // Si esa obra no está repetida (solo está una vez), se la suma al carrito
         const obra = obras.find(obra => obra.id == id)
         carrito.push(obra)
         pintarObraCarrito(obra)
         actualizarTotalesCarrito(carrito)
-    }else{
+    }else{ 
         const obra = carrito.find(obra => obra.id  == id)
         const cantidad = document.getElementById(`cantidad${obra.id}`)
-        obra.cantidad++
+        obra.cantidad++ // Si está repetida, se suma la cantidad correspondiente 
         cantidad.innerText = `Cantidad: ${obra.cantidad}`
         actualizarTotalesCarrito(carrito)
     }

@@ -108,3 +108,15 @@
     outline: none;
   }
 }
+
+.modal-sweet{
+  font-size: $button-size;
+  color: $headlines-color;
+}
+
+.swal2-title {
+  font-size: $headlines3-size;
+  color:$headlines-color;
+
+  /* Otros estilos si los necesitas */
+}
