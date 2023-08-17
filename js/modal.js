@@ -116,7 +116,7 @@ const modalBtnEntradas = (obras) => {
             const opcionesFechasHorarios = obra.funciones.split("+").map(funcion => {
                 return `<option value="${funcion.trim()}">\n${funcion.trim()}</option>`;
             }).join('');
-			
+
             Swal.fire({
                 title: `Entradas para ${obra.titulo}`,
                 html: `
@@ -125,7 +125,7 @@ const modalBtnEntradas = (obras) => {
                             <label for="opcFH" class="form-label">Fecha y horario</label>
                             <select class="form-select m-2 bg-green2" id="opcFH" required>
                                 <option selected>Seleccionar</option>
-                                ${opcionesFechasHorarios}
+								<option value="${opcionesFechasHorarios}">${opcionesFechasHorarios}</option>
                             </select>
                         </div>
 						<div>
