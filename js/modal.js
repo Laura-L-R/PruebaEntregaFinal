@@ -3,6 +3,8 @@ const abrirCarrito = document.getElementById("cesta-carrito");
 const cerrarCarrito = document.getElementById("btn-cerrar-carrito");
 const modalCarrito = document.querySelector(".modal-carrito");
 
+// const carrito = [ ]
+
 abrirCarrito.addEventListener("click", () => {
 	modalContenedor.classList.toggle("modal-active");
 	modalContenedor.classList.toggle("hide");
@@ -89,7 +91,7 @@ const modalBtnEntradas = (obras) => {
             </form>
                 `,
 					showCancelButton: true,
-					confirmButtonText: 'Continuar',
+					confirmButtonText: '<button id="cesta-carrito">Continuar</button>',
 					cancelButtonText: 'Cancelar',
 					focusConfirm: false,
 					preConfirm: () => {
@@ -106,6 +108,18 @@ const modalBtnEntradas = (obras) => {
 					}
 				}).then((result) => {
 					if (result.isConfirmed) {
+						const entrada = {
+							FechaHorario: `${result.value.fechaHorario}`,
+							precio: `${result.value.precio}`,
+							cantidad: `${result.value.localidades}`,
+							nombre: `${result.value.nombre}`,
+							apellido: `${result.value.apellido}`,
+							telefono: `${result.value.telefono}`,
+							email: ` ${result.value.email}`,
+						}
+
+						console.log(entrada)
+
 						const resumenCompra = `
 						<p>
 							Resumen de compra:<br>
@@ -122,13 +136,11 @@ const modalBtnEntradas = (obras) => {
 						Swal.fire(
 							'Resumen de compra',
 							resumenCompra,
-							console.log(resumenCompra),
 							'success', 
 							
 						);
 					}
-				});
-
+				}); 
         });
     });
 };
