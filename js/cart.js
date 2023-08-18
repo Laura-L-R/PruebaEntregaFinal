@@ -7,9 +7,34 @@ const contenedorProgramacion =  document.getElementById("contenedor-programacion
 // Se agrega un Listener para escuchar un elemento específico de dicho contenedor (aquel que tiene la clase "agregar", es decir, el button ENTRADAS)
 contenedorProgramacion.addEventListener("click", (e)=>{
     if(e.target.classList.contains("agregar")){ //Busca esta clase en el button de cada card.
-        validarObraEnCarrito(e.target.id) // Llamado a esta función tomando como parámetro el id de cada button
+        agregarObraAlCarrito(obra, result.value); // Llamado a esta función 
     }
 })
+
+const agregarObraAlCarrito = (obra, formData) => {
+
+    const estaRepetido = carrito.some(item => item.id === obra.id);
+
+    if (!estaRepetido) {
+        const nuevaObra = {
+            id: obra.id,
+            titulo: obra.titulo,
+            precio: obra.precio,
+            cantidad: 1, // Nueva obra, se inicia con cantidad 1
+            ...formData // Agregar otros datos del formulario
+        };
+
+        carrito.push(nuevaObra);
+        pintarObraCarrito();
+        actualizarTotalesCarrito(carrito);
+    } else {
+        const obraExistente = carrito.find(item => item.id === obra.id);
+        obraExistente.cantidad++; // Si está repetida, aumenta la cantidad
+        const cantidadElement = document.getElementById(`cantidad${obra.id}`);
+        cantidadElement.innerText = `Cantidad: ${obraExistente.cantidad}`;
+        actualizarTotalesCarrito(carrito);
+    }
+};
 
 const validarObraEnCarrito = (id)=>{
     const estaRepetido =  carrito.some (obra => obra.id == id)

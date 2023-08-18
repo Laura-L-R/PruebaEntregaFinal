@@ -34,7 +34,7 @@ const modalBtnEntradas = (obras) => {
             const opcionesFechasHorarios = obra.funciones.map(funcion => {
                 return `<option value="${funcion.trim()}">${funcion.trim()}</option>`;
             }).join('');
-			console.log(opcionesFechasHorarios)
+			// console.log(opcionesFechasHorarios)
 
             Swal.fire({
                 width: 600,
@@ -91,7 +91,7 @@ const modalBtnEntradas = (obras) => {
             </form>
                 `,
 					showCancelButton: true,
-					confirmButtonText: '<button id="cesta-carrito">Continuar</button>',
+					confirmButtonText: `Continuar`,
 					cancelButtonText: 'Cancelar',
 					focusConfirm: false,
 					preConfirm: () => {
@@ -109,20 +109,22 @@ const modalBtnEntradas = (obras) => {
 				}).then((result) => {
 					if (result.isConfirmed) {
 						const entrada = {
-							FechaHorario: `${result.value.fechaHorario}`,
-							precio: `${result.value.precio}`,
-							cantidad: `${result.value.localidades}`,
-							nombre: `${result.value.nombre}`,
-							apellido: `${result.value.apellido}`,
-							telefono: `${result.value.telefono}`,
-							email: ` ${result.value.email}`,
-						}
+							id: obra.id,
+							titulo: obra.titulo,
+							precio: obra.precio,
+							cantidad: result.value.localidades,
+							nombre: result.value.nombre,
+							apellido: result.value.apellido,
+							telefono: result.value.telefono,
+							email: result.value.email,
+						};
 
 						console.log(entrada)
 
 						const resumenCompra = `
 						<p>
 							Resumen de compra:<br>
+							Obra: ${obra.titulo}<br>
 							Fecha y horario: ${result.value.fechaHorario}<br>
 							Precio: ${result.value.precio}<br>
 							Cantidad: ${result.value.localidades}<br>
