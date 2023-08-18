@@ -120,7 +120,7 @@ const modalBtnEntradas = (obras) => {
 			};
   
 			agregarObraAlCarrito(entrada); // Agregar la entrada al carrito
-			actualizarTotalesCarrito(); // Actualizar los totales en el carrito
+			actualizarTotalesCarrito(carrito); // Actualizar los totales en el carrito
   
 			const resumenCompra = `
 			<p>
