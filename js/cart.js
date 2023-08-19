@@ -6,11 +6,15 @@ const contenedorProgramacion = document.getElementById("contenedor-programacion-
 
 const agregarObraAlCarrito = (obra) => {
 	const estaRepetido = carrito.some((item) => item.id === obra.id);
-
-	if (!estaRepetido) { // Si no está repetido (solamente hay una entrada), lo agrega directamente al carrito
+    if (!estaRepetido) { // Si no está repetido (solamente hay una entrada), lo agrega directamente al carrito
 		carrito.push(obra);
-		pintarObraCarrito();
-		actualizarTotalesCarrito(carrito);
+		const precioCarrito = carrito.find(e => e.id == obra.id)
+		precioCarrito.cantidad = Number(precioCarrito.cantidad)
+		precioCarrito.precio = precioEntrada
+		console.log(precioCarrito);
+		console.log("entrada agregada");
+            pintarObraCarrito();
+            actualizarTotalesCarrito(carrito);
 	} else {
 		const obraExistente = carrito.find((item) => item.id === obra.id); // Busca si hay otra obra con el mismo id para saber si está repe
 		console.log(obraExistente);
@@ -20,24 +24,6 @@ const agregarObraAlCarrito = (obra) => {
 		actualizarTotalesCarrito(carrito);
 	}
 };
-
-// const validarObraEnCarrito = (id) => {
-// 	const estaRepetido = carrito.some((obra) => obra.id == id);
-
-// 	if (!estaRepetido) {
-// 		// Si esa obra no está repetida (solo está una vez), se la suma al carrito
-// 		const obra = obras.find((obra) => obra.id == id);
-// 		carrito.push(obra);
-// 		pintarObraCarrito(obra);
-// 		actualizarTotalesCarrito(carrito);
-// 	} else {
-// 		const obra = carrito.find((obra) => obra.id == id);
-// 		const cantidad = document.getElementById(`cantidad${obra.id}`);
-// 		obra.cantidad++; // Si está repetida, se suma la cantidad correspondiente
-// 		cantidad.innerText = `Cantidad: ${obra.cantidad}`;
-// 		actualizarTotalesCarrito(carrito);
-// 	}
-// };
 
 const pintarObraCarrito = () => {
 	const contenedor = document.getElementById("carrito-contenedor"); // Captura contenedor que está dentro del modal carrito 
