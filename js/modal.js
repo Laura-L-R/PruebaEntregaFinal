@@ -1,7 +1,7 @@
 const modalContenedor = document.querySelector(".modal-contenedor");
 const abrirCarrito = document.getElementById("cesta-carrito");
 const cerrarCarrito = document.getElementById("btn-cerrar-carrito");
-const modalCarrito = document.querySelector(".modal-carrito");
+const modalCarrito = document.querySelector(".modal-carrito"); // Modal que muestra el resumen de compra
 
 // const carrito = [ ]
 
@@ -35,6 +35,11 @@ const modalBtnEntradas = (obras) => {
 		const opcionesFechasHorarios = obra.funciones.map(funcion => {
 			return `<option value="${funcion.trim()}">${funcion.trim()}</option>`;
 		}).join('');
+
+		const opcionesPrecios = obra.precio.map (pr => {
+			return `<option value="${pr.trim()}">${pr.trim()}</option>`;
+		}).join('');
+		
   
 		Swal.fire({
 			width: 600,
@@ -52,9 +57,7 @@ const modalBtnEntradas = (obras) => {
 				<label for="validationCustom04" class="form-label">Precio</label>
 				<select class="form-select m-2 bg-green2" id="opcPrecio" required>
 					<option selected>Seleccionar</option>
-					<option value="$3000 - Entrada general">$3000 - Entrada general</option>
-					<option value="$2500 - Descuento Estudiantes">$2500 - Descuento Estudiantes</option>
-					<option value="$1800 - Descuento jubiladxs">$1800 - Descuento jubiladxs</option>
+					${opcionesPrecios}
 				</select>
 			</div>
 			<div>
@@ -127,7 +130,7 @@ const modalBtnEntradas = (obras) => {
 				Resumen de compra:<br>
 				Obra: ${obra.titulo}<br>
 				Fecha y horario: ${result.value.fechaHorario}<br>
-				Precio: ${result.value.precio}<br>
+				Precio por entrada: ${result.value.precio}<br>
 				Cantidad: ${result.value.localidades}<br>
 				Nombre: ${result.value.nombre}<br>
 				Apellido: ${result.value.apellido}<br>
