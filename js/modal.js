@@ -27,6 +27,7 @@ modalCarrito.addEventListener("click", (e) => {
 	}
 });
 
+// Revisar esta función para bajar la complejidad
 
 const modalBtnEntradas = (obras) => {
 	obras.forEach(obra => {
